@@ -18,6 +18,7 @@ public class LoginServlet extends HttpServlet {
 		if(ses != null) {
 			ses.invalidate();
 		}
+		response.sendRedirect("login.html");
 	}
 
 	

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h2>Product List</h2>
-	<form>
+	<form method="post" action="cart">
 		<table border="1">
 			<tr> <th> Name </th> <th>Price</th> <th>Category</th> <th>Select</th></tr>
 			<c:forEach items="${products}" var="p">
