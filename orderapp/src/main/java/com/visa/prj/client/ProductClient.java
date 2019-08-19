@@ -1,5 +1,7 @@
 package com.visa.prj.client;
 
+import java.util.List;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.visa.prj.entity.Product;
@@ -16,14 +18,21 @@ public class ProductClient {
 		ctx.scan("com.visa.prj");
 		ctx.refresh();
 		
+		//Autowired cannot be used here because client isn't managed by Spring
 		OrderService os = ctx.getBean("orderService", OrderService.class);
 		
-		Product p = new Product(0, "Logitech Mouse", "computer", 450.00, 1000);
-		os.insertProduct(p);
+//		Product p = new Product(0, "Logitech Mouse", "computer", 450.00, 1000);
+//		os.insertProduct(p);
+//		
+//		p = os.getById(1);
+//		
+//		System.out.println(p.getName() + "," + p.getCategory() + "," + p.getPrice());
 		
-		p = os.getById(1);
+		List<Product> list = os.fetchProducts();
+		for(Product p : list) {
+			System.out.println(p.getName() + "," + p.getPrice());
+		}
 		
-		System.out.println(p.getName() + "," + p.getCategory() + "," + p.getPrice());
 	}
 
 }

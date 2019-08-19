@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +33,7 @@ public class Order {
 	@JoinColumn(name = "customer") // FK to email of customer
 	private Customer customer;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="order_id")  // FK to orders in items table
 	private List<Item> items = new ArrayList<>();
 	
@@ -63,6 +65,10 @@ public class Order {
 
 	public double getTotal() {
 		return total;
+	}
+	
+	public Date getOrderDate() {
+		return orderDate;
 	}
 
 	public void setTotal(double total) {
