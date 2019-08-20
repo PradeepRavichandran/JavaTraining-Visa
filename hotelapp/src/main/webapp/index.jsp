@@ -10,9 +10,12 @@
 <body>
 
 <div>
-    <h1>Welcome to Hotel booking application</h1>
+    <h1>Welcome </h1>
     <p>
         <a href="search.do">Search hotels</a>
+    </p>
+    <p>
+        <a href="userbookings.do">My bookings</a>
     </p>
 </div>
 

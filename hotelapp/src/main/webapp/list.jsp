@@ -21,7 +21,7 @@
 					<td> ${h.zip} </td>
 					<td> ${h.country} </td>
 					<td> ${p.price } </td>
-					<td> <input type="checkbox" name="htls" value="${h.id}"/></td>
+					<td> <input type="radio" name="ToBook" value="${h.id}"/></td>
 				</tr>
 			</c:forEach>	
 		</table>

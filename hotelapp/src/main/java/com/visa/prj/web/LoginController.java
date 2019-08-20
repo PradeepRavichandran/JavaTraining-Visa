@@ -17,7 +17,7 @@ public class LoginController {
     public String doLogin(@RequestParam("email") String email, @RequestParam("pwd") String pwd, Model m) {
         //validation
     	m.addAttribute("user", email);
-        return "redirect:searchCriteria.jsp";   //default-server side redirection
+        return "index.jsp";   //default is server side redirection
     }
      
     @RequestMapping("logout.do") 	//normal way - just to demonstrate

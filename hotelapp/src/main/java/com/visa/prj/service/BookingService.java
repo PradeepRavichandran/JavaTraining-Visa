@@ -35,14 +35,15 @@ public class BookingService {
 		return bookingDao.getUser(email, password);
 	}
 	
-	@Transactional
-	public void makeBooking(User u, Hotel h, Date checkin, Date checkout, Boolean smoking, int no_of_beds) {
-		 
+	public User getUserByEmail(String email) {
+		return bookingDao.getUserByEmail(email);
 	}
 	
-	public void createBooking(String[] hotels, String email) {
-		
+	@Transactional
+	public void makeBooking(Booking b) {
+		 bookingDao.makeBooking(b);
 	}
+	
 	
 
 }

@@ -26,16 +26,16 @@ public interface BookingDao {
 	 * @return user
 	 */
 	public User getUser(String email, String password);
+	
+	public User getUserByEmail(String email);
 	/**
 	 * 
 	 * @param booking
 	 * @return bookingId [ confirmation ]
 	 */
-	public long createBooking(Booking booking);
-	/**
-	 * 
-	 * @param user
-	 * @return all bookings of the login user
-	 */
+	public void makeBooking(Booking booking);
+	
 	public List<Booking> getAllBookingsOfUser(User user);
+	
+	
 }

@@ -14,7 +14,7 @@
 <body>
 <h1>Booking details</h1>
 
-<form:form modelAttribute="booking" action="placeReservation.do"
+<form:form modelAttribute="booking" action="makeBooking.do"
 	method="get" cssClass="inline">
 	<span class="errors span-18"> <form:errors path="*" /> </span>
 	<table>
@@ -43,13 +43,21 @@
 				<td><label for="checkoutDate">Checkout Date</label></td>
 				<td><form:input id="checkoutDate" path="checkoutDate" /></td>
 			</tr>
+			<tr>
+				<td><label for="smoking">Smoking</label></td>
+				<td><form:input  id="smoking" path="smoking" /></td>
+			</tr>
+			<tr>
+				<td><label for="no_of_beds">No of beds</label></td>
+				<td><form:input  id="no_of_beds" path="beds" /></td>
+			</tr>
 			<form:hidden id="hotel.id" path="hotel.id" />
 			<form:hidden   path="user.email" />
 			<tr>
 			</tr>
 			<tr>
 				<td colspan="2">
-				<button type="submit">Place Reservation</button>
+				<button type="submit">Finish Booking</button>
 				</td>
 			</tr>
 		</table>

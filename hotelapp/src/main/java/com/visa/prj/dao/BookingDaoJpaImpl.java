@@ -43,11 +43,19 @@ public class BookingDaoJpaImpl implements BookingDao {
 		return query.getSingleResult();
 			
 	}
+	
+	@Override
+	public User getUserByEmail(String email) {
+		String jpql = "select u from User u where u.email = :pr1";
+		TypedQuery<User> query = em.createQuery(jpql, User.class);
+		query.setParameter("pr1", email);
+		return query.getSingleResult();
+			
+	}
 
 	@Override
-	public long createBooking(Booking booking) {
-		
-		return 0;
+	public void makeBooking(Booking booking) {
+		em.persist(booking);
 	}
 
 	@Override
