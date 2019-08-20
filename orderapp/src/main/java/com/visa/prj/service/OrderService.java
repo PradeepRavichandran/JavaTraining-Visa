@@ -49,4 +49,25 @@ public class OrderService {
 	public Product getById(int id) {
 		return productDao.getProduct(id);
 	}
+	
+	public void createOrder(String[] ids, String email) {
+		Order o = new Order();
+		int total=0;
+		for(String id : ids) {
+			Product p = productDao.getProduct(Integer.parseInt(id));
+			Item i = new Item();
+			i.setProduct(p);
+			i.setQty(10);
+			i.setAmount(p.getPrice()*i.getQty());
+			total += p.getPrice()*i.getQty();
+			o.getItems().add(i);
+			
+		
+		}
+		Customer c = new Customer();
+		c.setEmail(email);
+		o.setCustomer(c);
+		o.setTotal(total);
+		placeOrder(o);
+	}
 }
