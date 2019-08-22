@@ -32,6 +32,8 @@ public class OrderService {
 			Product p = getById((i.getProduct().getId()));
 			p.setCount(p.getCount()-i.getQty()); // dirty checking will update product count			TypedQuery<Order> query = em.createQuery(jpql, Order.class);
 		}
+		o.setTotal(total);
+		return o.getOid();
 	}
 	
 	public List<Order> getOrders(Customer c){
